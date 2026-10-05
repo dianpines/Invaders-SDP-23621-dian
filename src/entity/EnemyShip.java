@@ -30,13 +30,13 @@ public class EnemyShip extends Entity {
 	/** Values of the ship, in points, when destroyed. */
 	private int pointValue;
 	/** How long the explosion flickers after a hit, in milliseconds. */
-	private static final int FLICKER_TIME = 150;
+	private static final int FLICKER_TIME = 150; // <-*AUTHORED BY: VFX TEAM (Effection)
 	/** Time between each flicker on/off switch, in milliseconds. */
-	private static final int FLICKER_INTERVAL = 50;
+	private static final int FLICKER_INTERVAL = 50; // <-*AUTHORED BY: VFX TEAM (Effection)
 	/** How long the explosion takes to fade away, in milliseconds. */
-	private static final int FADE_TIME = 300;
+	private static final int FADE_TIME = 300; // <-*AUTHORED BY: VFX TEAM (Effection)
 	/** Moment the ship was destroyed. */
-	private long destroyedAt;
+	private long destroyedAt; // <-*AUTHORED BY: VFX TEAM (Effection)
 
 	/**
 	 * Constructor, establishes the ship's properties.
@@ -147,9 +147,9 @@ public class EnemyShip extends Entity {
 	public final void destroy() {
 		this.isDestroyed = true;
 		this.spriteType = SpriteType.Explosion;
-		this.destroyedAt = System.currentTimeMillis();
+		this.destroyedAt = System.currentTimeMillis(); // <-*AUTHORED BY: VFX TEAM (Effection)
 	}
-	
+	/** AUTHORED BY: VFX TEAM (Effection) */
 	/** Opacity: 1 = visible, 0 = invisible. Flickers first, then fades. */
 	public final float getAlpha() {
 		if (!this.isDestroyed)
@@ -162,7 +162,7 @@ public class EnemyShip extends Entity {
 			return 0f;
 		return 1f - fading / (float) FADE_TIME;
 	}
-	
+	/** AUTHORED BY: VFX TEAM (Effection) */
 	/** True when the flicker + fade animation is over. */
 	public final boolean isFadeFinished() {
 		return this.isDestroyed && System.currentTimeMillis()
